@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { lazy, useEffect } from "react";
-import Layout from "../Layout/Layout";
 import { selectIsRefreching } from "../../redux/auth/selectors";
 import { refreshUser } from "../../redux/auth/operations";
 import RestrictedRoute from "../RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { Toaster } from "react-hot-toast";
+import Layout from "../Layout/Layout";
 
 const HomePage = lazy(() => import("../../pages/HomePage"));
 const LoginPage = lazy(() => import("../../pages/LoginPage"));
@@ -17,7 +17,7 @@ export default function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreching);
 
-  useEffect(() => {
+ useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 

@@ -17,7 +17,7 @@ export default function DeleteContactWindow({ onCloseModal, contact }) {
   return (
     <>
       <div className={css.describe}>
-        <p>Do you really want to delete ${contact.name} contact?</p>
+        <p>Do you really want to delete {contact.name} contact?</p>
       </div>
       <div className={css.buttotsContainer}>
         <button
@@ -32,7 +32,7 @@ export default function DeleteContactWindow({ onCloseModal, contact }) {
           className={css.buttonReturn}
           onClick={handleCancel}
         >
-          Cancel and return
+          Cancel
         </button>
       </div>
     </>

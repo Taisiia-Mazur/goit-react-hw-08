@@ -1,14 +1,19 @@
-import { MdPhone } from "react-icons/md";
-import { IoPerson } from "react-icons/io5";
 import { useState } from "react";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import css from "./Contact.module.css";
+
 
 export default function Contact({ contact }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [deleteContactModal, setDeleteContactModal] = useState(false);
   const [editContactModal, setEditContactModal] = useState(false);
   const { name, number } = contact;
+
+
+  const nameParts = name.split(" ");
+  const firstNameInitial = nameParts[0] ? nameParts[0][0] : "";
+  const lastNameInitial = nameParts[1] ? nameParts[1][0] : "";
+
 
   function openModal(param) {
     if (param === "deleteBtn") {
@@ -27,27 +32,30 @@ export default function Contact({ contact }) {
 
   return (
     <div className={css.contactBox}>
-      <div>
-        <div className={css.nameBox}>
-          <IoPerson style={{ width: 20, height: 20 }} />
-          <p>{name}</p>
-        </div>
-        <div className={css.contactData}>
-          <MdPhone style={{ width: 20, height: 20 }} />
-          <p>{number}</p>
-        </div>
+      <div className={css.profileData}>
+        <div className={css.avatar}>
+      {firstNameInitial}
+      {lastNameInitial}
+    </div>
+    
+          <div className={css.profile}>
+            <p>{name}</p>
+            <p>{number}</p>
+          </div>
       </div>
 
-      <button
-        type="button"
-        className={css.btnDelete}
-        onClick={() => openModal("deleteBtn")}
-      >
-        Delete
-      </button>
-      <button className={css.btnEdit} type="button" onClick={() => openModal()}>
-        Edit contact
-      </button>
+  <div className={css.btn}>
+        <button
+          type="button"
+          className={css.btnDelete}
+          onClick={() => openModal("deleteBtn")}
+        >
+          Delete
+        </button>
+        <button className={css.btnEdit} type="button" onClick={() => openModal()}>
+          Edit contact
+        </button>
+  </div>
 
       {modalIsOpen === true && (
         <ModalWindow

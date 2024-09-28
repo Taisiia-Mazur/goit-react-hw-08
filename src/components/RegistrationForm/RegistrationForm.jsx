@@ -1,6 +1,9 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
+import * as Yup from "yup";
 import { register } from "../../redux/auth/operations";
+import { useId } from "react";
+import css from "./RegistrationForm.module.css"
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -36,40 +39,47 @@ export default function RegistrationForm() {
       validationSchema={FeedbackSchema}
     >
       <Form className={css.form}>
-        <label htmlFor={nameFieldId} className={css.label}>
-          Name
-        </label>
-        <Field
-          type="text"
-          name="name"
-          id={nameFieldId}
-          autoComplete="off"
-          className={css.input}
-        />
-        <ErrorMessage className={css.errorText} name="name" component="p" />
-
-        <label htmlFor={emailFieldId} className={css.label}>
-          Email
-        </label>
-        <Field
-          type="email"
-          name="email"
-          id={emailFieldId}
-          autoComplete="off"
-          className={css.input}
-        />
-        <ErrorMessage className={css.errorText} name="email" component="p" />
-
-        <label htmlFor={passwordFieldId} className={css.label}>
-          Password
-        </label>
-        <Field
-          type="password"
-          name="password"
-          id={passwordFieldId}
-          className={css.input}
-        />
-        <ErrorMessage className={css.errorText} name="password" component="p" />
+      <div  className={css.box}>
+          <label htmlFor={nameFieldId} className={css.label}>
+            Name
+          </label>
+          <Field
+            type="text"
+            name="name"
+            id={nameFieldId}
+            autoComplete="off"
+            className={css.input}
+          />
+          <ErrorMessage className={css.errorText} name="name" component="p" />
+        </div>
+        
+   <div className={css.box}>
+          <label htmlFor={emailFieldId} className={css.label}>
+            Email
+          </label>
+          <Field
+            type="email"
+            name="email"
+            id={emailFieldId}
+            autoComplete="off"
+            className={css.input}
+          />
+          <ErrorMessage className={css.errorText} name="email" component="p" />
+  
+   </div>
+        <div className={css.box}>
+          <label htmlFor={passwordFieldId} className={css.label}>
+            Password
+          </label>
+          <Field
+            type="password"
+            name="password"
+            id={passwordFieldId}
+            className={css.input}
+          />
+          <ErrorMessage className={css.errorText} name="password" component="p" />
+          
+        </div>
         <button type="submit" className={css.submitButton}>
           Registration
         </button>

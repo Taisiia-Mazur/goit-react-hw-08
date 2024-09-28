@@ -1,6 +1,6 @@
 .contactBox {
-  /* width: 300px; */
-  height: 80px;
+  max-width: 300px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,45 +10,51 @@
   border-radius: 4px;
 }
 
+.btn {
+  display: flex;
+  flex-direction: column;
+}
+
 .btnDelete {
-  font-size: 15px;
+  font-size: 12px;
   padding: 3px;
-  background-color: rgb(242, 144, 127);
-  width: 70px;
-  height: 45px;
+  background-color: rgb(241, 168, 155);
+  width: 80px;
+  height: 30px;
   border-radius: 4px;
-  cursor: pointer;
+    margin-bottom: 7px;
 }
 
 .btnEdit {
-  margin: 7px auto;
-  font-size: 15px;
+  font-size: 12px;
   padding: 3px;
   border-radius: 4px;
-  width: 70px;
-  height: 45px;
-  background-color: rgb(96, 205, 105);
-  cursor: pointer;
+  width: 80px;
+  height: 30px;
+  background-color: rgb(22, 142, 222);
 }
 
-.contactData {
+.profileData {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: rgb(2, 83, 18);
-  /* justify-content: space-between; */
-  width: 180px;
-  gap: 15px;
-  font-size: 17px;
 }
 
-.nameBox {
+.profile {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* justify-content: space-between; */
+  flex-direction: column;
+  align-items: start;
   color: rgb(4, 4, 79);
-  width: 180px;
-  font-size: 17px;
-  gap: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 9px; 
+}
+
+.avatar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(22, 142, 222);
+  color: azure;
 }

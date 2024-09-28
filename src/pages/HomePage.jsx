@@ -3,7 +3,6 @@ const styles = {
     minHeight: "calc(100vh - 50px)",
     display: "flex",
     alignItems: "center",
-    // justifyContent: "center",
     flexDirection: "column",
   },
   title: {
@@ -12,7 +11,8 @@ const styles = {
     textAlign: "center",
   },
   text: {
-    margin: "16px",
+    fontWeight: 600,
+    fontSize: 24,
   },
 };
 
@@ -20,8 +20,8 @@ export default function HomePage() {
   return (
     <>
       <div style={styles.container}>
-        <h2 style={styles.title}>Phone Book welcome page</h2>
-        <p style={styles.text}>Please to register or log in.</p>
+        <h2 style={styles.title}>Are you ready to start with your PhoneBook?</h2>
+        <p style={styles.text}>Please register or log in.</p>
       </div>
     </>
   );

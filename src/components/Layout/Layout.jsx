@@ -1,10 +1,11 @@
+import { Suspense } from "react";
 import AppBar from "../AppBar/AppBar";
 
 export default function Layout({ children }) {
   return (
-    <div>
+     <Suspense fallback={null}>
       <AppBar />
       {children}
-    </div>
+    </Suspense>
   );
 }

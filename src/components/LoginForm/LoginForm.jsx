@@ -2,6 +2,7 @@ import { Field, Form, Formik } from "formik";
 import { logIn } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { useId } from "react";
 import css from "./LoginForm.module.css";
 
 export default function LoginForm() {
@@ -45,10 +46,12 @@ export default function LoginForm() {
           <button type="submit" className={css.submitButton}>
             LogIn
           </button>
+          <div className={css.text}>
+              <p >Don&apos;t have an account?</p>
+        <Link to={"/register"}>Sign up</Link>
+          </div>
         </Form>
       </Formik>
-      <p>Does&apos;t have an account yet?</p>
-      <Link to={"/register"}>Registration</Link>
     </>
   );
 }

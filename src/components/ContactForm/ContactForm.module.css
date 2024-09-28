@@ -1,20 +1,32 @@
-.formAddContact {
+.form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
   margin-bottom: 20px;
   border: 2px solid black;
-  padding: 12px;
-  border-radius: 4px;
-  /* input: 100%; */
+  padding: 20px;
+  border-radius: 6px;
 }
 
-/* .inputField {
-  width: 100%;
-} */
 .errorText {
+  font-size: 12px;
+  font-weight: 400;
   color: red;
+}
+
+.field {
+  padding-left: 10px;
+  width: 200px;
+  height: 24px;
+  font-weight: 600;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  font-weight: 600;
 }
 
 .formaBtn {
@@ -23,6 +35,12 @@
   border: 2px solid black;
   border-radius: 4px;
   font-size: 20px;
-  background-color: rgb(96, 205, 105);
+  background-color: rgb(22, 142, 222);
   cursor: pointer;
+  &:active {
+    background-color: rgb(78, 170, 232);
+  }
+     &:hover {
+       border: rgb(3, 33, 53);
+     }
 }

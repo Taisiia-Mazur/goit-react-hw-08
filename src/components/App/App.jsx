@@ -8,7 +8,6 @@ import RestrictedRoute from "../RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { Toaster } from "react-hot-toast";
 
-
 const HomePage = lazy(() => import("../../pages/HomePage"));
 const LoginPage = lazy(() => import("../../pages/LoginPage"));
 const RegistrationPage = lazy(() => import("../../pages/RegistrationPage"));
@@ -25,7 +24,7 @@ export default function App() {
   return isRefreshing ? (
     <div>Please, wait, loading information...</div>
   ) : (
-    <Layout>
+     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -37,7 +36,6 @@ export default function App() {
             />
           }
         />
-
         <Route
           path="/login"
           element={
@@ -47,18 +45,15 @@ export default function App() {
             />
           }
         />
-
         <Route
           path="/contacts"
           element={
             <PrivateRoute component={<ContactsPage />} redirectTo={"/login"} />
           }
         />
-
         <Route path="*" element={<HomePage />} />
       </Routes>
       <Toaster />
     </Layout>
   );
 }
-

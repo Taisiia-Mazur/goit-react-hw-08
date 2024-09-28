@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-axios.defaults.baseURL = "https://connections-api.goit.global/";
+axios.defaults.baseURL = "https://connections-api.goit.global";
 
 const notifyAddContact = (name) =>
   toast.success(`Contact ${name} successfully added`);
@@ -15,10 +15,10 @@ export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get("/contacts");
-      return res.data;
+      const respons = await axios.get("/contacts");
+      return respons.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue();
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
   {
@@ -33,11 +33,11 @@ export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (contact, thunkAPI) => {
     try {
-      const res = await axios.post("/contacts", {...contact});
-       notifyAddContact(res.data.name);
-      return res.data;
+      const respons = await axios.post("/contacts", { ...contact });
+      notifyAddContact(respons.data.name);
+      return respons.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue();
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

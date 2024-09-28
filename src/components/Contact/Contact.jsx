@@ -6,23 +6,23 @@ import css from "./Contact.module.css";
 
 export default function Contact({ contact }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [deleteContactModal, setdeleteContactModal] = useState(false);
-  const [editContactModal, seteditContactModal] = useState(false);
+  const [deleteContactModal, setDeleteContactModal] = useState(false);
+  const [editContactModal, setEditContactModal] = useState(false);
   const { name, number } = contact;
 
   function openModal(param) {
     if (param === "deleteBtn") {
-      setdeleteContactModal(true);
+      setDeleteContactModal(true);
     } else {
-      seteditContactModal(true);
+      setEditContactModal(true);
     }
     setModalIsOpen(true);
   }
 
   function closeModal() {
     setModalIsOpen(false);
-    setdeleteContactModal(false);
-    seteditContactModal(false);
+    setDeleteContactModal(false);
+    setEditContactModal(false);
   }
 
   return (

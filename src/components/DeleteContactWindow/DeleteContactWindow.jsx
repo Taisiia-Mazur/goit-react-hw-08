@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import css from "./DeleteContactWindow.module.css";
 import { deleteContact } from "../../redux/contacts/operations";
+import css from "./DeleteContactWindow.module.css";
 
 export default function DeleteContactWindow({ onCloseModal, contact }) {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ export default function DeleteContactWindow({ onCloseModal, contact }) {
           className={css.buttonReturn}
           onClick={handleCancel}
         >
-          Cansel and return
+          Cancel and return
         </button>
       </div>
     </>

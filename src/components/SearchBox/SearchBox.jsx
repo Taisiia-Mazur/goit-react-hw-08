@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import css from "../SearchBox/SearchBox.module.css";
 import { selectNameFilter } from "../../redux/filters/selectors";
 import { changeFilter } from "../../redux/filters/slice";
+import css from "../SearchBox/SearchBox.module.css";
 
 export default function SearchBox() {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export default function SearchBox() {
   };
   return (
     <div className={css.container}>
-      <p className={css.label}>Find contacts by name</p>
+      <p className={css.label}>Find contact by name or number</p>
       <input
         className={css.input}
         type="text"

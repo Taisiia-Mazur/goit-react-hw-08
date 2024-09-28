@@ -1,9 +1,7 @@
 import { useId } from "react";
 import { ErrorMessage, Formik, Form, Field } from "formik";
-
 import { useDispatch } from "react-redux";
 import { addContact, editContact } from "../../redux/contacts/operations";
-
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
 
@@ -57,7 +55,7 @@ export default function ContactForm({ currentContact, onCloseModal }) {
           type="text"
           name="number"
           id={fieldNumberId}
-          placeholder="--_--_----"
+          placeholder="XXX-XXX-XXXX"
           autoComplete="off"
         ></Field>
         <ErrorMessage className={css.errorText} name="number" component="p" />

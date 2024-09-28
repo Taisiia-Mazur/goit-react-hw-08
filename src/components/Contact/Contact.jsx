@@ -1,29 +1,63 @@
-import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsOps";
-import { FaPhone, FaUser } from "react-icons/fa6";
-import css from "../Contact/Contact.module.css";
+import { MdPhone } from "react-icons/md";
+import { IoPerson } from "react-icons/io5";
+import { useState } from "react";
+import ModalWindow from "../ModalWindow/ModalWindow";
+import css from "./Contact.module.css";
 
-export default function Contact({ contact: { id, name, number } }) {
-  const dispatch = useDispatch();
-  function onDelete(id) {
-    dispatch(deleteContact(id));
+export default function Contact({ contact }) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [deleteContactModal, setdeleteContactModal] = useState(false);
+  const [editContactModal, seteditContactModal] = useState(false);
+  const { name, number } = contact;
+
+  function openModal(param) {
+    if (param === "deleteBtn") {
+      setdeleteContactModal(true);
+    } else {
+      seteditContactModal(true);
+    }
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+    setdeleteContactModal(false);
+    seteditContactModal(false);
   }
 
   return (
-    <>
-    <div>
-          <p className={css.name}>
-            <FaUser className={css.svg} />
-            {name}
-          </p>
-          <p className={css.number}>
-            <FaPhone className={css.svg} />
-            {number}
-          </p>
+    <div className={css.contactBox}>
+      <div>
+        <div className={css.nameBox}>
+          <IoPerson style={{ width: 20, height: 20 }} />
+          <p>{name}</p>
+        </div>
+        <div className={css.contactData}>
+          <MdPhone style={{ width: 20, height: 20 }} />
+          <p>{number}</p>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        className={css.btnDelete}
+        onClick={() => openModal("deleteBtn")}
+      >
+        Delete
+      </button>
+      <button className={css.btnEdit} type="button" onClick={() => openModal()}>
+        Edit contact
+      </button>
+
+      {modalIsOpen === true && (
+        <ModalWindow
+          onCloseModal={closeModal}
+          modalIsOpen={modalIsOpen}
+          contact={contact}
+          deleteContactModal={deleteContactModal}
+          editContactModal={editContactModal}
+        />
+      )}
     </div>
-        <button className={css.btn} type="button" onClick={() => onDelete(id)}>
-          Delete
-        </button>
-    </>
   );
 }

@@ -28,7 +28,7 @@ body {
   min-height: 100vh;
 color: black;
 font-size: 18px;
-background-color: #eee9e9;
+background-color: linear-gradient(47deg, #b3faff, #75f5f3, #77fdb8);
 }
 
 
